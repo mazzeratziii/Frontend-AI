@@ -1,0 +1,7 @@
+{
+  "name": "frontend-experiment-evaluator",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {"test": "playwright test"},
+  "devDependencies": {"@axe-core/playwright": "latest", "@playwright/test": "latest"}
+}

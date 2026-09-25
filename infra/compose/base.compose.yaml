@@ -1,0 +1,12 @@
+services:
+  backend:
+    build: ../../backends/reference
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 2s
+      timeout: 2s
+      retries: 20
+    networks: [experiment]
+networks:
+  experiment:
+    internal: true

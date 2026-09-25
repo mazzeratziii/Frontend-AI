@@ -1,0 +1,1 @@
+{"id":"task-001","title":"Personal task board","description_file":"source/description.md","openapi_file":"source/openapi.yaml","required_operation_ids":["listTasks","createTask","updateTask"]}

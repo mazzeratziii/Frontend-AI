@@ -1,0 +1,1 @@
+{"name":"frontend-ai-experiment","private":true,"packageManager":"pnpm@11.19.0","scripts":{"frontend:build":"pnpm --dir frontend/starter build","evaluator:test":"pnpm --dir evaluator test"}}

@@ -1,0 +1,20 @@
+openapi: 3.1.0
+info: {title: Task API, version: 1.0.0}
+paths:
+  /health:
+    get:
+      operationId: health
+      responses: {'200': {description: Healthy}}
+  /tasks:
+    get:
+      operationId: listTasks
+      responses: {'200': {description: Tasks returned}}
+    post:
+      operationId: createTask
+      responses: {'201': {description: Task created}}
+  /tasks/{taskId}:
+    patch:
+      operationId: updateTask
+      parameters:
+        - {name: taskId, in: path, required: true, schema: {type: string}}
+      responses: {'200': {description: Task updated}}

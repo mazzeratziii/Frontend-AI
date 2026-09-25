@@ -1,0 +1,5 @@
+{
+  "A": ["source/description.md", "source/openapi.yaml"],
+  "B_adds": ["conditions/B/user-stories.json"],
+  "C_adds": ["conditions/C/ui-contract.json"]
+}

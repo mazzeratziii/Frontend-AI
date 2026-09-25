@@ -1,0 +1,21 @@
+[
+  {
+    "id": "US-001",
+    "actor": "task owner",
+    "goal": "create a task with a non-empty title",
+    "benefit": "capture work",
+    "acceptance_criteria": [
+      {"id": "AC-001", "given": "the task form is visible", "when": "I submit a non-empty title", "then": "the task appears in the list"},
+      {"id": "AC-002", "given": "the task form is visible", "when": "I submit an empty title", "then": "creation is blocked with an inline message"}
+    ]
+  },
+  {
+    "id": "US-002",
+    "actor": "task owner",
+    "goal": "mark a task complete",
+    "benefit": "track remaining work",
+    "acceptance_criteria": [
+      {"id": "AC-003", "given": "an incomplete task exists", "when": "I activate its completion control", "then": "the task becomes visibly complete and the API is updated"}
+    ]
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "version": "1.0",
+  "screens": [{
+    "id": "task-board",
+    "route": "/",
+    "purpose": "Create and manage tasks",
+    "states": [
+      {"name": "loading", "trigger": "listTasks pending", "expected_ui": "progress indicator and disabled form"},
+      {"name": "empty", "trigger": "listTasks returns no items", "expected_ui": "empty explanation and enabled form"},
+      {"name": "ready", "trigger": "listTasks returns items", "expected_ui": "task list and enabled form"},
+      {"name": "error", "trigger": "API request fails", "expected_ui": "operation-specific error and retry"}
+    ],
+    "api_bindings": [
+      {"operation_id": "listTasks", "trigger": "screen entry and retry", "success_state": "empty or ready", "error_state": "error"},
+      {"operation_id": "createTask", "trigger": "valid form submission", "success_state": "ready", "error_state": "error"},
+      {"operation_id": "updateTask", "trigger": "completion activation", "success_state": "ready", "error_state": "error"}
+    ],
+    "navigates_to": []
+  }]
+}
