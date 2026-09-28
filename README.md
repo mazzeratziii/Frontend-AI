@@ -18,3 +18,12 @@ python -m unittest discover -s tests -v
 ```
 
 Each run creates an immutable input snapshot and result under `runs/`.
+## DockerVM
+
+Docker runs inside the Debian virtual machine. Start and synchronize the project:
+
+    .\infra\vm\project.ps1 up
+    .\infra\vm\project.ps1 smoke
+
+Use the ps, logs, and down actions for lifecycle management. See
+infra/vm/README.md for details.

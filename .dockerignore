@@ -1,0 +1,8 @@
+.git
+.idea
+node_modules
+**/node_modules
+**/dist
+**/__pycache__
+runs/dry-run-*
+.env

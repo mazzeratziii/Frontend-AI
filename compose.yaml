@@ -1,0 +1,47 @@
+name: frontend-ai
+
+services:
+  backend:
+    build:
+      context: ./backends/reference
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health')"]
+      interval: 2s
+      timeout: 2s
+      retries: 20
+    networks: [experiment]
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/starter/Dockerfile
+    ports:
+      - "8080:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1/healthz"]
+      interval: 2s
+      timeout: 2s
+      retries: 20
+    networks: [experiment]
+
+  evaluator:
+    profiles: [evaluation]
+    build:
+      context: .
+      dockerfile: evaluator/Dockerfile
+    environment:
+      FRONTEND_URL: http://frontend
+      API_URL: http://backend:8000
+    depends_on:
+      frontend:
+        condition: service_healthy
+    networks: [experiment]
+
+networks:
+  experiment:
+    driver: bridge
